@@ -1,0 +1,12 @@
+<div class="doc-list">
+  <div class="doc-list-title">
+    <span style="margin-left: 45px">序号</span>
+    <span style="margin-left: 200px">描述</span>
+  </div>
+  <div class="doc-list-body">
+    <div *ngFor="let docs of doclist">
+      <app-doc-list-section [docs]="docs"></app-doc-list-section>
+      <div class="line-breaker"></div>
+    </div>
+  </div>
+</div>

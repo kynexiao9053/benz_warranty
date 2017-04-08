@@ -1,0 +1,26 @@
+.doc-list{
+  width: 1150px;
+  height: 710px;
+}
+
+.doc-list-title{
+  height: 37px;
+  /*width: 100%;*/
+  background-color: #f5f5f5;
+  font-size: 16px;
+  line-height: 40px;
+  padding-top: 3px;
+  overflow: hidden;
+  color: #333333;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.doc-list-body{
+  max-height: 670px;
+  overflow-y: scroll;
+}
+
+.line-breaker{
+  height: 5px;
+  background-color: #f5f5f5;
+}

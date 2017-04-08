@@ -1,0 +1,85 @@
+<div class="main_container">
+<div class="navbar">
+  <img class="logo" src="assets/logo.png"/>
+  <!--<div class="input-container">-->
+    <!--<input id="search_input" onblur="loseFocus()" oninput="inputChange(this)" onfocus="inputFocus()" type="text" class="searchbar" placeholder="搜索相关文献"/>-->
+  <!--</div>-->
+  <app-search-bar></app-search-bar>
+</div>
+
+<div class="module module1 clickable" (click)="clickModule(1)"><img src="assets/module1.png"></div>
+<div class="module module2 clickable" (click)="clickModule(2)"><img src="assets/module2.png"></div>
+<div class="module module3" (click)="clickModule(3)"><img src="assets/module_3.png"></div>
+<div class="module module4" (click)="clickModule(4)"><img src="assets/module_4.png"></div>
+
+<!--<div id="search-drop-down" class="search-drop-down">-->
+  <!--<div class="search-result-list">-->
+    <!--<div class="search-result clickable" onMouseDown="clickSearchResult()">-->
+      <!--<img src="assets/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单处理</span>-->
+    <!--</div>-->
+    <!--<div class="search-result clickable" onMouseDown="clickSearchResult()">-->
+      <!--<img src="assets/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单概念</span>-->
+    <!--</div>-->
+    <!--<div class="search-result clickable" onMouseDown="clickSearchResult()">-->
+      <!--<img src="assets/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单处理</span>-->
+    <!--</div>-->
+    <!--<div class="search-result clickable" onMouseDown="clickSearchResult()">-->
+      <!--<img src="assets/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单概念</span>-->
+    <!--</div>-->
+    <!--<div class="search-result clickable" onMouseDown="clickSearchResult()">-->
+      <!--<img src="assets/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单处理</span>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="search-more-result clickable" onMouseDown="clickMore()">-->
+    <!--查看更多相关文档-->
+    <!--<img src="assets/more_right_arrow.png">-->
+  <!--</div>-->
+<!--</div>-->
+
+<img class="tm_logo" src="assets/tm_logo_in_corner.png"/>
+
+</div>
+
+<!--点击模块-->
+<script>
+//  function clickModule(index){
+//    if (index == 1 || index == 2){
+//      window.location.href="./second.html";
+//    }
+//  }
+</script>
+
+<!--取消右键菜单-->
+<script language="JavaScript">
+  document.oncontextmenu =new Function("return false;")
+</script>
+
+
+<!--搜索条的逻辑-->
+<script>
+  function clickSearchResult(){
+    window.open("./G2.1.pdf");
+  }
+
+  function inputChange(input){
+    if (input.value.length > 0)
+      document.getElementById("search-drop-down").style.visibility = "visible";
+  }
+
+  function clickMore() {
+    window.location.href="search_result.html";
+  }
+
+  function inputFocus() {
+//        document.getElementById("search-drop-down").style.visibility = "visible";
+  }
+
+  function loseFocus(){
+    document.getElementById("search-drop-down").style.visibility = "hidden";
+  }
+</script>

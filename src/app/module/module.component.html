@@ -1,0 +1,324 @@
+<div class="doc-list-container">
+<div class="navbar">
+  <img class="clickable logo" src="assets/logo.png" (click)="returnToMainPage()"/>
+  <div class="vline"></div>
+  <img class="module-logo" [src]="modulelogo" (click)="returnToModulePage()"/>
+  <div *ngIf="mode == 'search'">
+    <div class="vline2"></div>
+    <img class="search-logo" src="assets/module_search_logo.png"/>
+  </div>
+  <app-search-bar [moduleid]="moduleid" (onSearchMoreOut)="onSearchMoreOut($event)"></app-search-bar>
+
+</div>
+
+<!--<div id="search-drop-down" class="search-drop-down">-->
+  <!--<div class="search-result-list">-->
+    <!--<div class="search-result" onMouseDown="clickSearchResult()">-->
+      <!--<img src="imgs/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单处理</span>-->
+    <!--</div>-->
+    <!--<div class="search-result" onMouseDown="clickSearchResult()">-->
+      <!--<img src="imgs/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单概念</span>-->
+    <!--</div>-->
+    <!--<div class="search-result" onMouseDown="clickSearchResult()">-->
+      <!--<img src="imgs/blue_right_arrow.png">-->
+      <!--<span>DMS系统中的保修单处理</span>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<div class="search-result" onMouseDown="clickSearchResult()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="imgs/blue_right_arrow.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>DMS系统中的保修单概念</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="search-result" onMouseDown="clickSearchResult()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="imgs/blue_right_arrow.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>DMS系统中的保修单处理</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="search-result" onMouseDown="clickSearchResult()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="imgs/blue_right_arrow.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>DMS系统中的保修单概念</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="search-result" onMouseDown="clickSearchResult()">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="imgs/blue_right_arrow.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>DMS系统中的保修单处理</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--</div>-->
+  <!--<div class="search-more-result" onMouseDown="clickMore()">-->
+    <!--查看更多相关文档-->
+    <!--<img src="imgs/more_right_arrow.png">-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="left-catalog">
+  <div class="catalog-title">类别</div>
+  <div *ngFor="let item of navitems" (click)="onNavItemClick(item.pid)">
+    <app-module-nav-item
+      [selected]="item.pid == current_partition_id"
+      [partition]="item">
+    </app-module-nav-item>
+  </div>
+  <!--<div class="catalog-item catalog-item-selected" onclick="selectChapter(this,1)">P 保修处理</div>-->
+  <!--<div class="catalog-item"  onclick="selectChapter(this,2)">-->
+    <!--<div class="catalog-item-first-line">G 返厂保修零件</div>-->
+    <!--<div class="catalog-item-second-line">（GALA件）</div>-->
+  <!--</div>-->
+  <!--<div class="catalog-item"  onclick="selectChapter(this,3)">A 保修审计</div>-->
+  <!--<div class="catalog-item"  onclick="selectChapter(this,4)">S 服务合约</div>-->
+</div>
+
+  <div *ngIf="mode == 'default'">
+    <app-doc-list [moduleid]="moduleid" [partitionid]="current_partition_id"></app-doc-list>
+  </div>
+  <div *ngIf="mode == 'search'">
+    <app-searched-doc-list [moduleid]="moduleid" [keywords]="keywords"></app-searched-doc-list>
+  </div>
+
+
+  <!--<div id="doc-list-1" class="doc-list">-->
+  <!--<div class="doc-list-title">-->
+    <!--<span style="margin-left: 45px">序号</span>-->
+    <!--<span style="margin-left: 200px">描述</span>-->
+  <!--</div>-->
+  <!--<div class="doc-list-body">-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.1</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.2</span>-->
+      <!--<span style="margin-left: 200px">保修单复查/编辑及释放</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">P1.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="line-breaker"></div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div id="doc-list-2" style="display: none" class="doc-list">-->
+  <!--<div class="doc-list-title">-->
+    <!--<span style="margin-left: 45px">序号</span>-->
+    <!--<span style="margin-left: 200px">描述</span>-->
+  <!--</div>-->
+  <!--<div class="doc-list-body">-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">G3.1</span>-->
+      <!--<span style="margin-left: 200px">ESKULAB操作</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">G3.2</span>-->
+      <!--<span style="margin-left: 200px">需要提交人工批复的ESKULAB及需要提交ESKULAB的情况</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">G3.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">G3.4</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div id="doc-list-3" style="display: none" class="doc-list">-->
+  <!--<div class="doc-list-title">-->
+    <!--<span style="margin-left: 45px">序号</span>-->
+    <!--<span style="margin-left: 200px">描述</span>-->
+  <!--</div>-->
+  <!--<div class="doc-list-body">-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">A3.1</span>-->
+      <!--<span style="margin-left: 200px">ESKULAB操作</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">A3.2</span>-->
+      <!--<span style="margin-left: 200px">需要提交人工批复的ESKULAB及需要提交ESKULAB的情况</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">A3.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">A3.4</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<div id="doc-list-4" style="display: none" class="doc-list">-->
+  <!--<div class="doc-list-title">-->
+    <!--<span style="margin-left: 45px">序号</span>-->
+    <!--<span style="margin-left: 200px">描述</span>-->
+  <!--</div>-->
+  <!--<div class="doc-list-body">-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">S3.1</span>-->
+      <!--<span style="margin-left: 200px">ESKULAB操作</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">S3.2</span>-->
+      <!--<span style="margin-left: 200px">需要提交人工批复的ESKULAB及需要提交ESKULAB的情况</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">S3.3</span>-->
+      <!--<span style="margin-left: 200px">如何提交I01文件（释放后的保养单）</span>-->
+    <!--</div>-->
+    <!--<div class="doc-item" onclick="clickItem()">-->
+      <!--<span style="margin-left: 45px; width: 50px">S3.4</span>-->
+      <!--<span style="margin-left: 200px">DMS系统中的保修单创建</span>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+</div>
+
+<script language="JavaScript">
+
+  function clickItem(){
+    window.open("./G2.1.pdf");
+  }
+
+  document.oncontextmenu =new Function("return false;")
+</script>
+
+<!--左边导航栏-->
+<script>
+  function selectChapter(div,index){
+    var items = document.getElementsByClassName("catalog-item");
+    for(var i = items.length - 1; i >= 0; i--) {
+      items[i].className = 'catalog-item';
+    }
+    div.className = 'catalog-item catalog-item-selected';
+
+//        var doc1 = document.getElementById("module-1");
+//        if (doc1.style.display == 'none'){
+//            doc1.style.display = 'block'
+//        } else doc1.style.display = 'none'
+//
+//        var doc2 = document.getElementById("module-2");
+//        if (doc2.style.display == 'none'){
+//            doc2.style.display = 'block'
+//        } else doc2.style.display = 'none'
+
+    var doclists = document.getElementsByClassName("doc-list");
+    for (var i = doclists.length -1; i>=0; i--){
+      doclists[i].style.display = 'none';
+    }
+
+    var selected_doclist = document.getElementById("doc-list-"+index);
+    selected_doclist.style.display = 'block';
+
+  }
+
+</script>
+
+<!--上方导航栏-->
+<script>
+//  function returnToMainPage(){
+//    window.location.href="main.html";
+//  }
+</script>
+
+<!--搜索条的逻辑-->
+<script>
+  function clickSearchResult(){
+    window.open("./G2.1.pdf");
+  }
+
+  function inputChange(input){
+    if (input.value.length > 0)
+      document.getElementById("search-drop-down").style.visibility = "visible";
+  }
+
+  function clickMore() {
+    window.location.href="module_search_result.html";
+  }
+
+  function inputFocus() {
+//        document.getElementById("search-drop-down").style.visibility = "visible";
+  }
+
+  function loseFocus(){
+    document.getElementById("search-drop-down").style.visibility = "hidden";
+  }
+</script>

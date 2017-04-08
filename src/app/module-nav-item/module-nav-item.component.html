@@ -1,0 +1,5 @@
+<div *ngIf="partition.subtitle == null" class="catalog-item" [class.catalog-item-selected]="selected">{{partition.title}}</div>
+<div *ngIf="partition.subtitle != null" class="catalog-item" [class.catalog-item-selected]="selected">
+  <div class="catalog-item-first-line">{{partition.title}}</div>
+  <div class="catalog-item-second-line">{{partition.subtitle}}</div>
+</div>

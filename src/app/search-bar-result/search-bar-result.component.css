@@ -1,0 +1,37 @@
+.search-more-result{
+  background-color:rgba(255,255,255,0.15);
+  color: #cccccc;
+  line-height: 28px;
+  font-size: 12px;
+  padding-left: 18px;
+  padding-top: 2px;
+}
+
+.search-more-result img{
+  float: right;
+  width: 7px;
+  height: 12px;
+  padding-top: 8px;
+  padding-right: 16px;
+}
+
+.search-result-list{
+  /*overflow-y: scroll;*/
+  overflow-x: hidden;
+  max-height: 209px;
+}
+
+.search-bar-result-container{
+  position: absolute;
+  background-color: rgba(0,0,0,0.9);
+  background-image: url(../../assets/search-drop-down-bg.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  outline: 1px rgba(255,255,255,0.1) solid;
+  left: 700px;
+  top: 70px;
+  max-height: 239px;
+  width: 300px;
+  z-index: 25;
+  /*visibility: hidden;*/
+}

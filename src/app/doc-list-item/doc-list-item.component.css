@@ -1,0 +1,26 @@
+
+.doc-item{
+  height:40px;
+  font-size: 16px;
+  line-height: 40px;
+  color: #777777;
+  cursor: pointer;
+}
+
+.doc-item span{
+  float: left;
+}
+
+.doc-list-item-desc{
+  margin-left: 200px;
+  max-width: 600px;
+  text-overflow: ellipsis;
+  max-lines: 1;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.doc-item:hover{
+  background-color: #f0f0f0;
+  color: rgba(0,162,228,1);
+}

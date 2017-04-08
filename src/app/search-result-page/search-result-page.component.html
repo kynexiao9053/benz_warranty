@@ -1,0 +1,71 @@
+
+<div class="search-result-page-container">
+<div class="navbar">
+  <img class="logo clickable" src="assets/logo.png" (click)="returnToMainPage()"/>
+  <div class="vline"></div>
+  <div class="module-logo"></div>
+  <app-search-bar></app-search-bar>
+</div>
+
+<div class="result-list">
+  <div class="result-title">
+    <span style=" display:inline-block;padding-left: 40px ; min-width: 60px">模块</span>
+    <span style="display:inline-block;padding-left: 150px; min-width: 50px">序号</span>
+    <span style="display:inline-block;padding-left: 190px">描述</span>
+  </div>
+  <div class="result-body">
+    <div *ngFor="let doc of doclist">
+      <app-search-result-page-item [modulelogo]="getModuleLogo(doc)" [doc]="doc"></app-search-result-page-item>
+    </div>
+    <!--<div class="clickable result-item-1 result-item" onclick="clickItem()">-->
+      <!--<div class="result-first-line">-->
+        <!--<img src="assets/search_result_wog.png"/>-->
+        <!--<span style="padding-left: 140px; width: 40px">P 3.1</span>-->
+        <!--<span style="padding-left: 205px; width: 40px">EVA保修单处理时间</span>-->
+        <!--<img class="result-first-line-right-arrow" src="assets/search_result_right_arrow.png"/>-->
+      <!--</div>-->
+      <!--<div class="result-second-line">-->
+        <!--<span>在EVA中上传保修单遇到红灯，请直接将第一次发送的邮件再次发送至保修公共邮箱，BMBS保修组核实报备信息后将在系统中修改参数允许释放。</span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clickable result-item-2 result-item" onclick="clickItem()">-->
+      <!--<div class="result-first-line">-->
+        <!--<img src="assets/search_result_fb.png"/>-->
+        <!--<span style="padding-left: 140px; width: 40px">P 3.1</span>-->
+        <!--<span style="padding-left: 205px; width: 40px">EVA保修单处理时间</span>-->
+        <!--<img class="result-first-line-right-arrow" src="assets/search_result_right_arrow.png"/>-->
+      <!--</div>-->
+      <!--<div class="result-second-line">-->
+        <!--<span>在EVA中上传保修单遇到红灯，请直接将第一次发送的邮件再次发送至保修公共邮箱，BMBS保修组核实报备信息后将在系统中修改参数允许释放。</span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clickable result-item-1 result-item" onclick="clickItem()">-->
+      <!--<div class="result-first-line">-->
+        <!--<img src="assets/search_result_faq.png"/>-->
+        <!--<span style="padding-left: 140px; width: 40px">P 3.1</span>-->
+        <!--<span style="padding-left: 205px; width: 40px">EVA保修单处理时间</span>-->
+        <!--<img class="result-first-line-right-arrow" src="assets/search_result_right_arrow.png"/>-->
+      <!--</div>-->
+      <!--<div class="result-second-line">-->
+        <!--<span>在EVA中上传保修单遇到红灯，请直接将第一次发送的邮件再次发送至保修公共邮箱，BMBS保修组核实报备信息后将在系统中修改参数允许释放。</span>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>
+
+</div>
+
+<script language="JavaScript">
+  function clickItem(){
+    window.open("./G2.1.pdf");
+  }
+
+  document.oncontextmenu =new Function("return false;")
+</script>
+
+<!--上方导航栏-->
+<script>
+//  function returnToMainPage(){
+//    window.location.href="main.html";
+//  }
+</script>

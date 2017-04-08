@@ -1,0 +1,15 @@
+<div class="input-container">
+  <input #searchinput id="search_input"
+         (blur)="loseFocus()"
+         (input)="inputChange(searchinput.value)"
+         type="text" class="searchbar" placeholder="搜索相关文献"/>
+</div>
+
+<div *ngIf="doclist.length > 0">
+  <app-search-bar-result
+    [keywords]="searchinput.value"
+    [doclist]="doclist"
+    (onSearchMore)="onSearchMore($event)"
+  >
+  </app-search-bar-result>
+</div>

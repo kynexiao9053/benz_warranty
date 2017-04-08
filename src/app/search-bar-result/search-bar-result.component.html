@@ -1,0 +1,11 @@
+<div class="search-bar-result-container">
+  <div class="search-result-list">
+    <div *ngFor="let doc of doclist">
+      <app-search-bar-result-item [doc]="doc"></app-search-bar-result-item>
+    </div>
+  </div>
+  <div class="search-more-result clickable" (mousedown)="clickMore()">
+    查看更多相关文档
+    <img src="assets/more_right_arrow.png">
+  </div>
+</div>

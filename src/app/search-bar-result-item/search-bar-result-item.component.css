@@ -1,0 +1,35 @@
+
+.search-bar-result-item-container{
+  font-size: 14px;
+  line-height: 32px;
+  color: white;
+  cursor: pointer;
+  width: 280px;
+
+  text-overflow: ellipsis;
+  max-lines: 1;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.search-bar-result-item-container img{
+  float: left;
+  height: 8px;
+  width: 5px;
+  padding-left: 18px;
+  padding-top: 12px;
+  visibility: hidden;
+}
+
+.search-bar-result-item-container span{
+  padding-left: 9px;
+
+}
+
+.search-bar-result-item-container:hover{
+  color: rgba(0,162,228,1);
+}
+
+.search-bar-result-item-container:hover > img{
+  visibility: visible;
+}
